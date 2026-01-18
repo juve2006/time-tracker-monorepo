@@ -3,7 +3,7 @@ import { TIME_ENTRY_VALIDATION } from './constants';
 
 export const timeEntrySchema = z.object({
   date: z.date({
-    required_error: "Date is required",
+    message: "Date is required"
   }),
   project: z.string().min(1, "Project is required"),
   hours: z.string()

@@ -5,9 +5,7 @@ export const timeEntrySchema = z.object({
   date: z.date({
     required_error: "Date is required",
   }),
-  project: z.string({
-    required_error: "Project is required",
-  }).min(1, "Project is required"),
+  project: z.string().min(1, "Project is required"),
   hours: z.string()
     .min(1, "Hours is required")
     .refine((val) => !isNaN(parseFloat(val)), "Hours must be a valid number")

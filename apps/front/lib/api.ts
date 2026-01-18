@@ -15,8 +15,6 @@ async function handleResponse<T>(response: Response): Promise<T> {
     const errorData = await response.json().catch(() => null);
     throw new ApiError(
       errorData?.message || `HTTP error! status: ${response.status}`,
-      response.status,
-      errorData
     );
   }
   return response.json();
